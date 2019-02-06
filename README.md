@@ -1,16 +1,16 @@
-# testAY8930
-The Microchip AY8930 is a 40-pin chip which has the same function and register-level interface as the General Instruments
-[AY-3-8910](https://en.wikipedia.org/wiki/General_Instrument_AY-3-8910 "Wikipedia: General Instrument AY-3-8910").
-The AY8930, though, has a number of enhancements over the AY-3-8910.
-It has three envelope shapers, 16-bit tone generator control registers, an improved
-noise generator and duty cycle control, amongst other things.
+# AY-3-8930-Arduino-Test
+The AY-3-8930, produced by Microchip Technologies, is a 40-pin enhanced and mostly-backwards-compatible version of the original [AY-3-8910](https://en.wikipedia.org/wiki/General_Instrument_AY-3-8910 "Wikipedia: General Instrument AY-3-8910") programmable sound generator  by General Instrument.
 
-This Arduino sketch tests an AY8930 chip by setting up some initial configuration and generating sounds.
+While sharing the same pinout (although the BC2 pin is ignored and assumed to be 0 regardless of the pin state) and register-level interface as the AY-3-8910, the AY-3-8930, has a number of enhancements over the original:
+Amongst other things, it features three envelope shapers, 16-bit tone generator control registers, and an improved
+noise generator and duty cycle control.
+
+This Arduino sketch tests an AY-3-8930 chip by setting up some initial configuration and generating sounds.
 The Arduino's ADC (analog-to-digital converter) is used, along with a pot, to control the sound generator.
 
 ## Test Plan
 We want to verify both that the chip works and that it has the
-enhanced functionality (i.e. that it really is an AY8930).
+enhanced functionality (i.e. that it really is an AY-3-8930, or "AY8930" for short).
 So the Arduino sketch switches the chip into enhanced mode by setting the
 upper four bits of the ENVELOPE register (R13) to 1010 or 1011.
 The function 'aywrite()' that accesses the chip must keep track of
@@ -42,3 +42,7 @@ should flash at a moderate rate.
 
 ## AY8930 on Breadboard
 ![AY8930 rig](AY8930_rig.jpg "AY8930 rig")
+
+## Test videos
+https://www.youtube.com/watch?v=S6DzIqfoHH0
+
